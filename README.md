@@ -1,3 +1,7 @@
+# orbitarium-live
+
+[![CI](https://github.com/shauryamalhotra957-wq/orbitarium-live/actions/workflows/ci.yml/badge.svg)](https://github.com/shauryamalhotra957-wq/orbitarium-live/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ﻿# Orbitarium Live
 
 > Real-time orbital dynamics, satellite constellation tracking, and space mission simulation platform.
