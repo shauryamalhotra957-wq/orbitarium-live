@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbitarium Live · Real-Time Satellite Constellation Tracker & Astrodynamics Engine</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2'><circle cx='12' cy='12' r='9'/><path d='M3.6 9h16.8'/><path d='M3.6 15h16.8'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+
+    <!-- Header -->
+    <header class="top-header">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div>
+          <div class="brand-title">ORBITARIUM LIVE</div>
+          <div class="brand-subtitle">3D SATELLITE & ASTRODYNAMICS PLATFORM</div>
+        </div>
+      </div>
+
+      <div class="header-status">
+        <span id="utc-clock">00:00:00 UTC</span> · <span style="color: #10b981;">TELEMETRY ACTIVE</span>
+      </div>
+    </header>
+
+    <!-- Satellite Selection Sidebar -->
+    <aside class="sat-sidebar">
+      <div class="sidebar-header">CONSTELLATION DIRECTORY</div>
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="station">Stations</button>
+        <button class="filter-btn" data-category="constellation">Starlink</button>
+        <button class="filter-btn" data-category="navigation">GPS</button>
+        <button class="filter-btn" data-category="science">Science</button>
+      </div>
+      <div class="sat-list" id="sat-list"></div>
+    </aside>
+
+    <!-- Time Simulation Controls -->
+    <div class="time-controls">
+      <button class="ctrl-btn" id="btn-play-pause">⏸ PAUSE</button>
+      <button class="time-btn" data-speed="1">1x</button>
+      <button class="time-btn active" data-speed="10">10x</button>
+      <button class="time-btn" data-speed="50">50x</button>
+      <button class="time-btn" data-speed="250">250x</button>
+    </div>
+
+    <!-- Live Telemetry HUD -->
+    <section class="telemetry-hud">
+      <div class="hud-header">
+        <div class="hud-title-row">
+          <div class="hud-sat-title" id="hud-sat-name">ISS (Zarya)</div>
+          <div class="hud-norad" id="hud-norad-id">#25544</div>
+        </div>
+      </div>
+
+      <div class="telemetry-grid">
+        <div class="telem-cell">
+          <div class="telem-label">Altitude</div>
+          <div class="telem-value" id="hud-altitude">420.0 km</div>
+        </div>
+        <div class="telem-cell">
+          <div class="telem-label">Orbital Speed</div>
+          <div class="telem-value" id="hud-velocity">7.66 km/s</div>
+        </div>
+        <div class="telem-cell">
+          <div class="telem-label">Sub-Sat Latitude</div>
+          <div class="telem-value" id="hud-latitude">+0.000°</div>
+        </div>
+        <div class="telem-cell">
+          <div class="telem-label">Sub-Sat Longitude</div>
+          <div class="telem-value" id="hud-longitude">+0.000°</div>
+        </div>
+      </div>
+
+      <div class="telem-subinfo">
+        <div>ORBITAL PERIOD: <span id="hud-period" style="color: #fff;">92.8 min</span></div>
+        <div>APOAPSIS / PERIAPSIS: <span id="hud-apoapsis" style="color: #fff;">422.0 km</span> / <span id="hud-periapsis" style="color: #fff;">418.0 km</span></div>
+        <div>ORBITAL INCLINATION: <span id="hud-inclination" style="color: #fff;">51.64°</span></div>
+        <div>GROUND NETWORK: <span style="color: #10b981;">6 TRACKING TERMINALS LOCKED</span></div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
